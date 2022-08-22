@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculo Online</title>
+    <style>
+
+        /* CONFIGURAÇÕES GERAIS */
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        h1{
+            margin: 10px;
+        }
+
+        hr{
+            margin: 15px 0px 15px 0px;
+        }
+
+        ul{
+            margin: 10px;
+        }
+
+        ul > .subitem{
+            margin-left: 40px;
+            list-style: none;
+        }
+        
+        /* HEADER */
+
+        header > .dados > p{
+            margin: 15px;
+            margin-left: 10px;
+        }
+
+        header > .imagem > img{
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            margin-left: 10px;
+        }
+
+        header > .texto > p{
+            margin: 15px;
+        }
+
+        /* ENDEREÇO */
+
+        main > .endereco > h1{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><strong>Elon Musk</strong></h1>
+        <div class="dados">
+            <p><strong>Nascimento:</strong> 01/01/1970</p>
+            <p><strong>email:</strong> elon@gmail.com</p>
+            <p><strong>Telefone:</strong> (83) 99999-9999</p>
+        </div>
+        <div class="imagem">
+            <img src="elon.jpeg" alt="Elon">
+        </div>
+        <div class="texto">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem fugit hic facere magni fugiat, dolorum sapiente eum ullam expedita quisquam, dignissimos porro est doloribus omnis, quia saepe nesciunt reiciendis reprehenderit.</p>
+        </div>
+    </header>
+    <main>
+        <div class="endereco">
+            <h1><strong>Endereço</strong></h1>
+            <hr> 
+
+            <ul>
+                <li class="item"><strong>Rua:</strong></li>
+                <li class="subitem">Av. 1° de Maio, 720 </li>
+                <li class="item"><strong>Cidade:</strong></li>
+                <li class="subitem">João Pessoa, PB</li>
+                <li class="item"><strong>Bairro:</strong></li>
+                <li class="subitem">Jaguaribe</li>
+            </ul>
+        </div>
+
+        <div class="experiencia">
+            <h1><strong>Experiencia</strong></h1>
+            <hr> 
+
+            <ul>
+                <li class="item"><strong><a href="/">SpaceX</a></strong></li>
+                <li class="subitem">CEO e CTO</li>
+                <li class="subitem">2016 - Atual</li>
+                <li class="item"><strong><a href="/">Tesla</a></strong></li>
+                <li class="subitem">CEO e CTO</li>
+                <li class="subitem">2016 - Atual</li>
+            </ul>            
+        </div>
+
+        <div class="competencias">
+            <h1><strong>Competencias</strong></h1>
+            <hr> 
+        </div>
+    </main>
+</body>
+</html>
