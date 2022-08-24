@@ -4,62 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Curriculo Online</title>
-    <style>
-
-        /* CONFIGURAÇÕES GERAIS */
-
-        *{
-            margin: 0;
-            padding: 0;
-        }
-
-        h1, h3, p{
-            margin: 10px;
-        }
-
-        hr{
-            margin: 15px 10px 15px 10px;
-        }
-
-        ul{
-            margin: 10px;
-        }
-
-        ul > .subitem{
-            margin-left: 40px;
-            list-style: none;
-        }
-        
-        /* HEADER */
-
-        header > .dados > p{
-            margin: 15px;
-            margin-left: 10px;
-        }
-
-        header > .imagem > img{
-            width: 100px;
-            height: 100px;
-            margin: 5px;
-            margin-left: 10px;
-        }
-
-        header > .texto > p{
-            margin: 15px;
-        }
-
-        /* ENDEREÇO */
-
-        main > .endereco > h1{
-            margin: 10px;
-        }
-
-        main > .competencias > ul > .listcompet{
-            list-style: inside;
-            margin-left: 20px;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -73,12 +19,23 @@
             <img src="elon.jpeg" alt="Elon">
         </div>
         <div class="texto">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem fugit hic facere magni fugiat, dolorum sapiente eum ullam expedita quisquam, dignissimos porro est doloribus omnis, quia saepe nesciunt reiciendis reprehenderit.</p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem fugit hic facere magni fugiat, dolorum sapiente eum ullam expedita quisquam, dignissimos porro est doloribus omnis, quia saepe nesciunt reiciendis reprehenderit.<a href="leiamais.html">Leia Mais!</a></p> 
         </div>
     </header>
     <main>
+        <div class="sumario">
+            <h1 id="sumario"><strong>Sumário</strong></h1>
+            <hr> 
+
+            <ul>
+                <li class="listcompet"><a href="#endereco">Endereço</a></li>
+                <li class="listcompet"><a href="#experiencia">Experiencia</a></li>
+                <li class="listcompet"><a href="#competencias">Competencias</a></li>
+                <li class="listcompet"><a href="#formacao">Formação academica</a></li>
+            </ul>
+        </div>
         <div class="endereco">
-            <h1><strong>Endereço</strong></h1>
+            <h1 id='endereco'><strong>Endereço</strong></h1>
             <hr> 
 
             <ul>
@@ -89,10 +46,12 @@
                 <li class="item"><strong>Bairro:</strong></li>
                 <li class="subitem">Jaguaribe</li>
             </ul>
+
+            <a href="#sumario">Topo</a>
         </div>
 
         <div class="experiencia">
-            <h1><strong>Experiencia</strong></h1>
+            <h1 id='experiencia'><strong>Experiencia</strong></h1>
             <hr> 
 
             <ul>
@@ -102,11 +61,13 @@
                 <li class="item"><strong><a href="/">Tesla</a></strong></li>
                 <li class="subitem">CEO e CTO</li>
                 <li class="subitem">2016 - Atual</li>
-            </ul>            
+            </ul>    
+            
+            <a href="#sumario">Topo</a>
         </div>
 
         <div class="competencias">
-            <h1><strong>Competencias</strong></h1>
+            <h1 id='competencias'><strong>Competencias</strong></h1>
             <hr> 
 
             <ul>
@@ -115,10 +76,12 @@
                 <li class="listcompet">HTML</li>
                 <li class="listcompet">XML</li>
             </ul>
+
+            <a href="#sumario">Topo</a>
         </div>
 
         <div class="formacao">
-            <h1><strong>Formação Acadêmica</strong></h1>
+            <h1 id='formacao'><strong>Formação Acadêmica</strong></h1>
             <hr> 
 
             <h3><a href="https://www.ifpb.edu.br/">Instituto Federal de Educação, Ciência e Tecnologia da Paraíba</a></h3>
@@ -130,6 +93,8 @@
 
             <p>Curso Superior em Tecnologia em Sistemas para Internet</p>
             <p>2010 - 2013</p>
+
+            <a href="#sumario">Topo</a>
         </div>
     </main>
 </body>

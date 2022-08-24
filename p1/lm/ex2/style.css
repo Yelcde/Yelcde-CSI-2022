@@ -1,0 +1,69 @@
+/* CONFIGURAÇÕES GERAIS */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+h1, h3, p, a{
+    margin: 10px;
+}
+
+hr{
+    margin: 15px 10px 15px 10px;
+}
+
+ul{
+    margin: 10px;
+}
+
+ul > .subitem{
+    margin-left: 40px;
+    list-style: none;
+}
+
+/* HEADER */
+
+header > .dados > p{
+    margin: 15px;
+    margin-left: 10px;
+}
+
+header > .imagem > img{
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    margin-left: 10px;
+}
+
+header > .texto > p{
+    margin: 15px;
+}
+
+/* SUMÁRIO */
+
+main > .sumario > ul > .listcompet{
+    list-style: inside;
+    margin-left: 20px;
+}
+
+/* ENDEREÇO */
+
+main > .endereco > h1{
+    margin: 10px;
+}
+
+main > .competencias > ul > .listcompet{
+    list-style: inside;
+    margin-left: 20px;
+}
+
+/* LEIA MAIS */
+
+.leiamais > a > img{
+    height: 50px;
+}
