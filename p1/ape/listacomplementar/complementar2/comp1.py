@@ -13,3 +13,5 @@ elif (dia == 6):
     print('Hoje é Sexta-feira e hoje é dia útil')
 elif (dia == 7):
     print('Hoje é Sábado e hoje não é dia útil')
+else:
+    print('Escreva um número de 1-7')
