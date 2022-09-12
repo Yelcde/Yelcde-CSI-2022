@@ -128,3 +128,7 @@ main > .competencias > ul > .listcompet{
 .leiamais > a > img{
     height: 50px;
 }
+
+footer > p{
+    text-align: center;
+}
