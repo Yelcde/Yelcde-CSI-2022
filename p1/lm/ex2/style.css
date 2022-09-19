@@ -1,3 +1,11 @@
+/* IMPORTAÇÕES */
+
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css');
+
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
 /* CONFIGURAÇÕES GERAIS */
 
 *{
@@ -44,6 +52,10 @@ h1.text-center{
     margin-bottom: 20px;
 }
 
+h1.text-center > strong{
+    font-family: 'Audiowide', cursive;
+}
+
 .item1{
     color: white;
 }
@@ -64,6 +76,7 @@ h2{
     font-size: 24px;
     background-color: lightskyblue;
     margin: 20px 10px 20px 10px;
+    border-radius: 5px;
 }
 
 hr{
@@ -95,6 +108,12 @@ header > .imagem > img{
 
 header > .texto > p{
     margin: 8px;
+    line-height: 1.5em;
+    text-align: justify;
+}
+
+header > .texto > p > a > span{
+    font-size: 1em
 }
 
 /* SUMÁRIO */
@@ -123,12 +142,53 @@ main > .competencias > ul > .listcompet{
     margin-left: 20px;
 }
 
-/* LEIA MAIS */
+/* ICONES */
 
-.leiamais > a > img{
-    height: 50px;
+.social{
+    text-align: center;
+    font-size: 2em;
 }
+
+.social > .face{
+    color: navy;
+}
+
+.social > .tw{
+    color: navy;
+}
+
+.social > .face{
+    color: navy;
+}
+
+/* FOOTER */
 
 footer > p{
     text-align: center;
+}
+
+/* LEIA MAIS */
+
+/*.leiamais > a > img{
+    height: 50px;
+}*/
+
+.leiamais > a{
+    padding: 4px;
+    margin-left: 3px;
+    text-decoration: none;
+    transition: all .5s;
+    font-weight: bold;
+}
+
+.leiamais > a:hover{
+    background-color: darkblue;
+    color: white;
+    transition: all .5s;
+}
+
+.leiamais > a > .btn{
+    font-size: 1.3rem;
+    padding: 0;
+    margin: 0;
 }
