@@ -2,35 +2,28 @@ print('Escolha o código e a quantidade do seu lanche:')
 print('H = Hamburguer\nC = Cheese Burguer\nB = Cheese Bacon\nF = Cheese Frango')
 print('Se já terminou, digite x')
 
-h = 5
-c = 6
-b = 7
-f = 4
+PRECO_H = 5
+PRECO_C = 6
+PRECO_B = 7
+PRECO_F = 4
 pedido = 0
+preco = 0
+
 while pedido != 'x':
-    pedido = input('Qual o seu pedido? ').upper()
+    pedido = input('Qual o código do seu lanche? ').upper()
     if (pedido == 'X'):
         break
-    if (pedido == 'H'):
-        lanche = h
-    elif (pedido == 'C'):
-        lanche = c
-    elif (pedido == 'B'):
-        lanche = b
-    elif (pedido == 'F'):
-        lanche = f
-        
+    if (pedido != 'H' and pedido != 'C' and pedido != 'B' and pedido != 'F'):
+        print('Digite uma letra válida!')
+        continue
     quantidade = int(input('Qual a quantidade? '))
-    if (quantidade > 0 and lanche == h):
-        preço = quantidade * lanche
-    elif (quantidade > 0 and lanche == c):
-        preço = quantidade * lanche
-    elif (quantidade > 0 and lanche == b):
-        preço = quantidade * lanche
-    elif (quantidade > 0 and lanche == f):
-        preço = quantidade * lanche
-    str(preço)
-    resultado = preço
+    if (pedido == 'H'):
+        preco += PRECO_H * quantidade
+    elif (pedido == 'C'):
+        preco += PRECO_C * quantidade
+    elif (pedido == 'B'):
+        preco += PRECO_B * quantidade
+    elif (pedido == 'F'):
+        preco += PRECO_F * quantidade
     
-print(resultado)
-    
+print(f'O total a pagar é {preco},00 R$')
