@@ -1,12 +1,12 @@
 num = int(input('Me dê um número inteiro maior ou igual a 2: '))
-contador = 0
-num_destrinchado = 1
-resultado = 0
-while num >= resultado:
-    resultado = contador + num_destrinchado
-    if (resultado == 1):
-        contador = 0
-    elif (resultado > 1):
-        contador += 1
-    num_destrinchado += 1
-    print(resultado)
+
+a = 0
+b = 1
+
+print('Sequencia: ', a, b, end=' ')
+
+for i in range(3, num+1):
+    c = a + b
+    print(c, end=' ')
+    a = b
+    b = c
