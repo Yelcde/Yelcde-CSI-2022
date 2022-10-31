@@ -6,30 +6,37 @@ ordem = int(input('Me dê o tamanho da matriz: '))
 
 # criação da matriz com valores nulos
 
-a = [[None]*n for i in range(ordem)]
-b = [[None]*n for i in range(ordem)]
+a = [[None]*ordem for i in range(ordem)]
+b = [[None]*ordem for i in range(ordem)]
 
-# geração da matriz com valores aleatorios
+# geração da matriz A com valores aleatorios
 
-for i in range(n):
-    for j in range(n):
-        m[i][j] = random.randint(1, 20)
+for i in range(ordem):
+    for j in range(ordem):
+        a[i][j] = random.randint(1, 20)
 
-# imprimir a matriz
+# geração da matriz B com valores aleatorios
 
-print('Matriz')
-for i in range(n):
-    for j in range(n):
-        print(f'{m[i][j]:3}', end='')
-    print()
-
-# diagonal
-
-print('Diagonal')
-for i in range(n):
-    for j in range(n):
+for i in range(ordem):
+    for j in range(ordem):
+        b[i][j] = a[i][j] + i + j
         if (i == j):
-            print(f'{m[i][j]:3}', end='')
-    print('', end='')
+            b[i][j] = 0
+        elif ((i + j) == (ordem - 1)):
+            b[i][j] = 0
 
-NÃO TERMINADA
+# imprimir a matriz A
+
+print('Matriz A')
+for i in range(ordem):
+    for j in range(ordem):
+        print(f'{a[i][j]:3}', end='')
+    print()
+    
+# imprimir matriz B
+
+print('Matriz B')
+for i in range(ordem):
+    for j in range(ordem):
+        print(f'{b[i][j]:3}', end='')
+    print()
