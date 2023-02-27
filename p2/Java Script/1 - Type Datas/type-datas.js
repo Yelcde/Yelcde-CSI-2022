@@ -1,18 +1,14 @@
 // Boolean
+console.log(true);
+console.log(false);
 
-console.log(True);
-console.log(False);
-
-// Undefined
-
+// undefined
 console.log(undefined);
 
-// Null
-
+// null
 console.log(null);
 
-// Number 
-
+// Number
 console.log(-15);
 console.log(15);
 console.log(0b1111);
@@ -21,21 +17,16 @@ console.log(0xf);
 console.log(15.15);
 console.log(15.15e10);
 
-// Strings
-
+// String
 console.log('ifpb');
+//  console.log("ifpb");
+console.log(`ifpb`);
+console.log(`ifpb
+cstsi`);
 
-// console.log('ifpb');
-
-console.log('ifpb');
-console.log('ifpb
-cstsi');
-
-// Array 
-
+// Array
 console.log([1, 2, 3]);
 console.log([1, 'ifpb', true, [1, 2]]);
 
 // JSON
-
 console.log({ name: 'Luiz', email: 'luiz@email.com' });
