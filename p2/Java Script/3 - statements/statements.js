@@ -10,7 +10,7 @@ if (number > 0) {
   console.log('positive');
 }
 
-// if..else
+// if..esle
 if (number >= 0) {
   console.log('This number is positive');
 } else {
@@ -79,3 +79,40 @@ for (let flag = 1; flag < 10; flag++) {
 
 console.log(result);
 
+// 00, 01, ..., 09
+// 10, 11...
+// ...
+// ... 99
+result = '';
+
+for (let flag = 0; flag < 100; flag++) {
+  if (flag < 10) {
+    result += '0' + flag;
+  } else {
+    result += flag;
+  }
+
+  if (flag !== 99) {
+    if (flag % 10 === 9) {
+      result += ',\n';
+    } else {
+      result += ',';
+    }
+  }
+}
+
+console.log(result);
+
+// for for
+result = '';
+for (let ten = 0; ten < 10; ten++) {
+  for (let unit = 0; unit < 10; unit++) {
+    result += ten + unit;
+
+    if (unit === 9 && ten !== 9) {
+      result += ',\n';
+    } else {
+      result += ',';
+    }
+  }
+}
