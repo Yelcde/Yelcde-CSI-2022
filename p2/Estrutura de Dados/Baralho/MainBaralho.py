@@ -17,8 +17,8 @@ print(c2)
 print(c3)
 
 b1 = Baralho()
-print(b1)
-print(len(b1))
+# print(b1)
+# print(len(b1))
 b1.embaralhar()
 print(b1)
 
@@ -27,7 +27,7 @@ for i in range(10):
 
 cartaRetirada = b1.retiraCartas()
 print('\nCarta Retirada', cartaRetirada)
-print(len(b1))
+# print(len(b1))
 b1.reporCarta(cartaRetirada)
 print(len(b1))
 print(b1)
