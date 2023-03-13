@@ -1,27 +1,51 @@
-// Criando Arrays e, JS
-let array = [10, 5];
-let arrayAsObject = new Array(10, 5);
+// Create array with values
 
-// Checando se é um array
-console.log(arrayAsObject.push(20));
-console.log(typeof array);
-console.log(Array.isArray(arrayAsObject))
+const values = [1, 2, 3];
+console.log(values);
 
-array[0] = 2;
-console.log(array[0]);
+// Create empty array
 
-array = [10, 5, 'LS', {nome: 'Francisco', disciplina: "LS"}];
-console.log(array[3].disciplina);
-// Acessando o [3] e especificando que é a disciplina
-console.log(array[4][1]);
+const numbers = [];
+numbers.push(1); // Adiciona o valor
+console.log(numbers);
 
-let array1 = [1, 2, 3];
-let array2 = [4, 5, 6];
+numbers.unshift(0); // Coloca o valor no inicio
+console.log(numbers);
 
-// Joyn é um separador, que serve para separar os itens de um array
-console.log(array1, join(' - '));
+numbers[2] = 2;
+console.log(numbers);
 
-// array = [array1, array2];
-array = [...array1, ...array2];
-// array = [1, 2, 3, ...array2];
-// array = [1, 2, 3, 4, 5, 6, 7];
+// Multiple types
+
+const person = ['John', 30, true, ['john@gmail.com']];
+
+// Destruction array
+
+// const name = person[0];
+// const age = person[1];
+// const [name, age] = person
+const [ ,age] = person;
+const [ , , ,[email]] = person;
+
+// React
+// const [name, setName] = useState('');
+
+console.log(age);
+
+// Spread operator
+
+const students = [...person, "TSI"];
+
+// Interation
+
+for (let flag = 0; flag < numbers.length; flag++){
+    console.log(numbers[flag]);
+}
+
+for (const numbers in numbers){
+    console.log(numbers)
+}
+
+for (const numbers of numbers){
+    console.log(numbers)
+}
