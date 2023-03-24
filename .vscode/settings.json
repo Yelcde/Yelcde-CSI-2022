@@ -1,6 +1,7 @@
 {
     "editor.wordWrap": "on",
     "python.analysis.extraPaths": [
-        "./p2/Estrutura de Dados/Baralho"
+        "./p2/Estrutura de Dados/Baralho",
+        "./p2/Estrutura de Dados/3 - Pilha Encadeada"
     ]
 }
