@@ -8,17 +8,21 @@ class No:
         self.__carga = carga
         self.__prox = None
 
-    def getProximo(self)-> 'No':
-        return self.__prox
+    
+    def getCarga(self):
+        return self.__carga
 
-    def setProximo(self, novoProx: 'No'):
+    def getProximo(self)->'No':
+        return self.__prox
+    
+    def setProximo(self, novoProx:'No'):
         self.__prox = novoProx
 
-    def temProximo(self) -> bool:
+    def temProximo(self)->bool:
         return self.__prox == None
 
-    def __str__(self) -> str:
-        return f""
+    def __str__(self):
+        return f'{self.__carga}'
 
 
 class Pilha:
@@ -34,7 +38,8 @@ class Pilha:
         """ Construtor padrão da classe Pilha sem argumentos. Ao instanciar
             um objeto do tipo Pilha, esta iniciará vazia. 
         """
-        self.__topo = self.__topo
+        self.__topo = None 
+        self.__tam = 0
         
     def estaVazia(self)->bool:
         """ Método que verifica se a pilha está vazia .
@@ -50,6 +55,9 @@ class Pilha:
         """
         return self.__topo == None
 
+    def __len__(self):
+        return self.__tam
+
     def tamanho(self)->int:
         """ Método que retorna a quantidade de elementos existentes na pilha
 
@@ -61,7 +69,7 @@ class Pilha:
             ...   # considere que temos internamente a pilha [10,20,30,40]<- p
             print (p.tamanho()) # exibe 4
         """ 
-        pass
+        return self.__tam
 
     def elemento(self, posicao:int)->any:
         """ Método que recupera a carga armazenada em um determinado elemento da pilha
@@ -86,8 +94,17 @@ class Pilha:
             posicao = 5
             print (p.elemento(3)) # exibe 30
         """
-        pass
-                
+        if posicao <= 0 or posicao > self.tamanho():
+            raise PilhaException("Posição Inválida. A pilha não tem esse tamanho")
+
+        contador = 1
+        cursor = self.__topo
+        while (cursor != None):
+            if contador == posicao:
+                return cursor.getCarga()
+            cursor = cursor.getProximo()
+            contador += 1
+
     def busca(self, key:any)->int:
         """ Método que retorna a posicao ordenada, dentro da pilha, em que se
             encontra uma chave passado como argumento. No caso de haver mais de uma
@@ -110,7 +127,15 @@ class Pilha:
             ...   # considere que temos internamente a lista [10,20,30,40]<-topo
             print (p.elemento(40)) # exibe 4
         """
-        pass
+        contador = 1
+        cursor = self.__topo
+        while (cursor != None):
+            if key == cursor.getCarga():
+                return contador
+            cursor = cursor.getProximo()
+            contador += 1
+
+        raise PilhaException(f'A chave {key} não está na pilha')
 
     def topo(self)->any:
         """ Método que devolve o elemento localizado no topo, sem desempilhá-lo.
@@ -145,6 +170,7 @@ class Pilha:
         no = No(carga)
         no.setProximo(self.__topo)
         self.__topo = no
+        self.__tam += 1
 
 
     def desempilha(self)->any:
@@ -164,7 +190,12 @@ class Pilha:
             print(p) # exibe [10,20,30]
             print(dado) # exibe 40
         """
-        pass
+        if self.__topo is None:
+            raise PilhaException('Não há elementos para remoção. Pilha Vazia')
+        carga = self.__topo.getCarga()
+        self.__topo = self.__topo.getProximo()
+        self.__tam -= 1
+        return carga
    
     def imprime(self):
         """ Método que exibe na tela a sequência ordenada dos elementos da pilha
@@ -174,7 +205,7 @@ class Pilha:
             ...   # considere que temos internamente a pilha [10,20,30,40]<-topo
             p.imprimir()) # exibe Lista: [10,20,30,40] <- topo
         """  
-        pass
+        print(self.__str__())
         
     def __str__(self)->str:
         """ Método que retorna a ordenação atual dos elementos da pilha, do
@@ -183,4 +214,17 @@ class Pilha:
         Returns:
            str: a carga dos elementos da pilha, do topo até a base
         """  
-        pass
+        s = 'topo->[ '
+        cursor = self.__topo
+        while(cursor != None):
+            s += f'{cursor.getCarga()} '
+            if cursor.getProximo() is not None:
+                s+= ', '
+            cursor = cursor.getProximo()
+        # s = 
+        # s += ' ]'
+        # return s[:-2] + ' ]'
+        return s + "]"
+
+ 
+
