@@ -21,17 +21,24 @@ const companies = [
     },
 ]
 
+// Adicionando mais um item ao objeto
 for (const i in companies) {
     companies[i].kind = 'Internet company'
 }
 
 function show(companies) {
+    // Vendo qual empresa tem o maior nome
+    let biggest = 0
     for (const company of companies) {
-        console.log(company.nome.padEnd(15, '.'), company.fundacao)
+        if (company.nome.length > biggest){
+            biggest = company.nome.length
+        }
+    }
+    
+    for (const company of companies) {
+        console.log(company.nome.padEnd(biggest+3, '.'), company.fundacao)
     }
 }
 
 // console.log(companies)
 show(companies)
-
-// console.log(JSON.stringify(companies, null, 2))
