@@ -94,7 +94,17 @@ class Pilha:
             posicao = 5
             print (p.elemento(3)) # exibe 30
         """
-        pass
+        if posicao <= 0 or posicao > self.tamanho():
+            raise PilhaException(f"Posicao invalida. A pilha so tem {self.__tam} elementos.")
+        
+        contador = 1
+        cursor = self.__topo
+        while(cursor != None):
+            if contador == posicao:
+                return cursor.getCarga()
+            cursor = cursor.getProximo()
+            contador += 1
+        
                 
     def busca(self, key:any)->int:
         """ Método que retorna a posicao ordenada, dentro da pilha, em que se
@@ -118,7 +128,15 @@ class Pilha:
             ...   # considere que temos internamente a lista [10,20,30,40]<-topo
             print (p.elemento(40)) # exibe 4
         """
-        pass
+        contador = 1
+        cursor = self.__topo
+        while(cursor != None):
+            if key == cursor.getCarga():
+                return contador
+            cursor = cursor.getProximo()
+            contador += 1
+
+        raise PilhaException(f"A chave {key} não está na pilha.")
 
     def topo(self)->any:
         """ Método que devolve o elemento localizado no topo, sem desempilhá-lo.
@@ -136,7 +154,9 @@ class Pilha:
             dado = p.topo()
             print(dado) # exibe 40
         """
-        pass
+        if self.__topo is None:
+            raise PilhaException("Pilha Vazia")
+        return self.__topo.getCarga()
 
     def empilha(self, carga:any):
         """ Método que adiciona um novo elemento ao topo da pilha
@@ -188,7 +208,7 @@ class Pilha:
             ...   # considere que temos internamente a pilha [10,20,30,40]<-topo
             p.imprimir()) # exibe Lista: [10,20,30,40] <- topo
         """  
-        pass
+        print(self.__str__())
         
     def __str__(self)->str:
         """ Método que retorna a ordenação atual dos elementos da pilha, do

@@ -3,27 +3,6 @@ class PilhaException(Exception):
         super().__init__(mensagem)
         
 
-class No:
-    def __init__(self, carga:any):
-        self.__carga = carga
-        self.__prox = None
-
-    
-    def getCarga(self):
-        return self.__carga
-
-    def getProximo(self)->'No':
-        return self.__prox
-    
-    def setProximo(self, novoProx:'No'):
-        self.__prox = novoProx
-
-    def temProximo(self)->bool:
-        return self.__prox == None
-
-    def __str__(self):
-        return f'{self.__carga}'
-
 
 class Pilha:
     """A classe Pilha implementa a estrutura de dados "Pilha" utilizando a técnica encadeada.
@@ -38,8 +17,8 @@ class Pilha:
         """ Construtor padrão da classe Pilha sem argumentos. Ao instanciar
             um objeto do tipo Pilha, esta iniciará vazia. 
         """
-        self.__topo = None 
-        self.__tam = 0
+        self.__colecao = []
+
         
     def estaVazia(self)->bool:
         """ Método que verifica se a pilha está vazia .
@@ -53,10 +32,10 @@ class Pilha:
             if(p.estaVazia()): 
                # instrucoes quando a pilha estiver vazia
         """
-        return self.__topo == None
+        return len(self.__colecao)==0
 
     def __len__(self):
-        return self.__tam
+        return len(self.__colecao)
 
     def tamanho(self)->int:
         """ Método que retorna a quantidade de elementos existentes na pilha
@@ -69,7 +48,7 @@ class Pilha:
             ...   # considere que temos internamente a pilha [10,20,30,40]<- p
             print (p.tamanho()) # exibe 4
         """ 
-        return self.__tam
+        return len(self.__colecao)
 
     def elemento(self, posicao:int)->any:
         """ Método que recupera a carga armazenada em um determinado elemento da pilha
@@ -94,7 +73,11 @@ class Pilha:
             posicao = 5
             print (p.elemento(3)) # exibe 30
         """
-        pass
+        if posicao <= 0 or posicao > self.tamanho():
+            raise PilhaException(f"Posicao invalida. A pilha so tem {len(self.__colecao)} elementos.")
+        
+        return self.__colecao[posicao-1]
+        
                 
     def busca(self, key:any)->int:
         """ Método que retorna a posicao ordenada, dentro da pilha, em que se
@@ -118,7 +101,10 @@ class Pilha:
             ...   # considere que temos internamente a lista [10,20,30,40]<-topo
             print (p.elemento(40)) # exibe 4
         """
-        pass
+        for i in range(len(self.__colecao)):
+            if key == self.__colecao[i]:
+                return i+1
+        raise PilhaException(f"A chave {key} não está na pilha.")
 
     def topo(self)->any:
         """ Método que devolve o elemento localizado no topo, sem desempilhá-lo.
@@ -136,7 +122,9 @@ class Pilha:
             dado = p.topo()
             print(dado) # exibe 40
         """
-        pass
+        if self.estaVazia():
+            raise PilhaException("Pilha Vazia")
+        return self.__colecao[-1]
 
     def empilha(self, carga:any):
         """ Método que adiciona um novo elemento ao topo da pilha
@@ -150,10 +138,7 @@ class Pilha:
             p.empilha(50)
             print(p)  # exibe [10,20,30,40,50]
         """
-        no = No(carga)
-        no.setProximo(self.__topo)
-        self.__topo = no
-        self.__tam += 1
+        self.__colecao.append(carga)
 
 
     def desempilha(self)->any:
@@ -173,12 +158,10 @@ class Pilha:
             print(p) # exibe [10,20,30]
             print(dado) # exibe 40
         """
-        if self.__topo is None:
+        if self.estaVazia():
             raise PilhaException('Não há elementos para remoção. Pilha Vazia')
-        carga = self.__topo.getCarga()
-        self.__topo = self.__topo.getProximo()
-        self.__tam -= 1
-        return carga
+        
+        return self.__colecao.pop()
    
     def imprime(self):
         """ Método que exibe na tela a sequência ordenada dos elementos da pilha
@@ -188,7 +171,7 @@ class Pilha:
             ...   # considere que temos internamente a pilha [10,20,30,40]<-topo
             p.imprimir()) # exibe Lista: [10,20,30,40] <- topo
         """  
-        pass
+        print(self.__str__())
         
     def __str__(self)->str:
         """ Método que retorna a ordenação atual dos elementos da pilha, do
@@ -197,17 +180,10 @@ class Pilha:
         Returns:
            str: a carga dos elementos da pilha, do topo até a base
         """  
-        s = 'topo->[ '
-        cursor = self.__topo
-        while(cursor != None):
-            s += f'{cursor.getCarga()} '
-            if cursor.getProximo() is not None:
-                s+= ', '
-            cursor = cursor.getProximo()
-        # s = 
-        # s += ' ]'
-        # return s[:-2] + ' ]'
-        return s + "]"
+        s="["
+        for i in range(len(self.__colecao)):
+            s += f'{self.__colecao[i]}, '
+        return s[:-2] + ' ] <-topo'
 
  
 
