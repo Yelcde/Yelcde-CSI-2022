@@ -1,0 +1,7 @@
+.idea/*
+.idea
+
+venv
+
+imagens_sequencial/
+imagens_threaded/
