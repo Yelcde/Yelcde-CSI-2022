@@ -15,9 +15,13 @@ p = Pilha()
 for i in range (1,11):
     p.empilha(i*10)
 
-p.topo()
-# try:
-#     while(True):
-#         print('desempilha: ', p.desempilha())
-# except PilhaException as pe:
-#     print(pe)
+print(p)
+
+try:
+    while(True):
+        print('desempilha: ', p.desempilha())
+except PilhaException as pe:
+    print(pe)
+
+dado = p.topo()
+print(dado)
