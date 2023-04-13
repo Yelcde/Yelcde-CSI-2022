@@ -22,8 +22,7 @@ class No:
 
     @prox.setter
     def prox(self, novoNo):
-        self.__prox = novoNo
-    
+        self.__prox = novoNo   
 
     def temProximo(self)->bool:
         return self.__prox == None
@@ -83,48 +82,78 @@ class Fila:
             self.__head.final = novoNo
         self.__head.tam += 1
 
-    
-    def desenfileira(self)->any:
-        if self.estaVazia():
-            raise FilaException("Fila está vazia")
-
-        carga = self.__head.frente.carga
-        if self.__head.tam == 1:
-            self.__head.final = None
-        self.__head.frente = self.__head.frente.prox
-        self.__head.tam -= 1
-        return carga
-
-
-    def __str__(self)->str:
-        s = 'frente->[ '
-        cursor = self.__head.frente
-        while(cursor != None):
-            s += f'{cursor.carga}, ' 
-            cursor = cursor.prox
-        return s[:-2] + ' ]'
-
-    def elemento(self, posicao:int)->any:
-        if posicao <= 0 or posicao > self.__len__():
-            raise FilaException(f"Posicao invalida. A fila so tem {self.__len__()} elementos.")
+    def modificaValor(self, posicao, novoValor):
+        try:
+            if posicao <= 0 or posicao > self.__len__():
+                return FilaException(f"Posicao invalida. A fila só tem {self.__len__()} elementos.\n")
+        except:
+            return FilaException(f'Digite um número entre 1 e {self.__len__()}\n')
         
         contador = 1
         cursor = self.__head.frente
         while(cursor != None):
             if contador == posicao:
-                return cursor.carga
+                self.__head.final.prox = novoValor
+                self.__head.final = novoValor
             cursor = cursor.prox
-            contador += 1
+            contador += 1        
+
+    
+    def desenfileira(self, posicao)->any:
+        if self.estaVazia():
+            return FilaException("A fila está vazia")
+        try:
+            if posicao <= 0 or posicao > self.__len__():
+                return FilaException(f"Posicao invalida. A fila só tem {self.__len__()} elementos.\n")
+        except:
+            return FilaException(f'Digite um número entre 1 e {self.__len__()}\n')
         
+        contador = 1
+        cursor = self.__head.frente
+        while(cursor != None):
+            carga = self.__head.frente.carga
+            if self.__head.tam == 1:
+                self.__head.final = None
+            if contador == posicao:
+                self.__head.frente = self.__head.frente.prox
+                self.__head.tam -= 1
+                cursor = cursor.prox
+                contador += 1    
+                return carga
+                
+
+    def elemento(self, posicao:int)->any:
+        try:
+            if posicao <= 0 or posicao > self.__len__():
+                return FilaException(f"Posicao invalida. A fila só tem {self.__len__()} elementos.\n")
+        except:
+            return FilaException(f'Digite um número entre 1 e {self.__len__()}\n')
+        
+        contador = 1
+        cursor = self.__head.frente
+        while(cursor != None):
+            if contador == posicao:
+                return f'A posição {posicao} é correspondente ao valor {cursor.carga}'
+            cursor = cursor.prox
+            contador += 1        
                 
     def busca(self, key:any)->int:
         contador = 1
         cursor = self.__head.frente
         while(cursor != None):
             if key == cursor.carga:
-                return contador
+                return f'A chave {key} é correspondente a posição {contador}\n'
             cursor = cursor.prox
             contador += 1
 
-        raise FilaException(f"A chave {key} não está na fila.")
+        return FilaException(f"A chave {key} não está na fila.")
 
+    def __str__(self)->str:
+        s = 'frente-> [ '
+        cursor = self.__head.frente
+        while(cursor != None):
+            s += f'{cursor.carga}, ' 
+            cursor = cursor.prox
+        if self.estaVazia():
+            return s + ' ]'
+        return s[:-2] + ' ]'
