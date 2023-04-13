@@ -28,7 +28,7 @@ class No:
 class Pilha:
 
     def __init__(self):
-        self.__topo = None 
+        self.__topo = None  
         self.__tam = 0
 
         
@@ -45,87 +45,44 @@ class Pilha:
         
 
     def elemento(self, posicao:int)->any:
-        """ Método que recupera a carga armazenada em um determinado elemento da pilha
+        if self.__topo is None:
+            raise PilhaException("A pilha está vazia! Adicione itens")
+        if (self.__topo is None) and (posicao > self.__tam) or (posicao < 0):
+            raise PilhaException(f'Me dê uma posição válida! Entre 1 e {self.__tam}')
+            
+        pos = 1
+        cursor = self.__topo
+        while (pos <= self.__tam):            
+            if (pos == posicao):
+                return f'Na posicao {posicao} está o item {cursor.getCarga()}'
+            pos += 1
+            cursor = cursor.getProximo()
 
-        Args:
-            posicao (int): um número correpondente à ordem do elemento existente.
-                           Sentido: da base em direção ao topo
-        
-        Returns:
-            Any: a carga armazenada no elemento correspondente à posição indicada.
+        return PilhaException(f'O item {posicao} não existe na pilha')
 
-        Raises:
-            PilhaException: Exceção lançada quando uma posição inválida é
-                  fornecida pelo usuário. São inválidas posições que se referem a:
-                  (a) números negativos
-                  (b) zero
-                  (c) número natural correspondente a uma posição  que excede a
-                      quantidade de elementos da lista.                      
-        Examples:
-            p = Pilha()
-            ...   # considere que temos internamente a pilha [10,20,30,40]<-topo
-            posicao = 5
-            print (p.elemento(3)) # exibe 30
-        """
-        pass
                 
     def busca(self, key:any)->int:
-        """ Método que retorna a posicao ordenada, dentro da pilha, em que se
-            encontra uma chave passado como argumento. No caso de haver mais de uma
-            ocorrência do valor, a primeira ocorrência será retornada.
-            O ordenamento que determina a posição é da base para o topo.
+        if self.__topo is None:
+            return PilhaException("Não há itens para buscar! Adicione itens")
 
-        Args:
-            key (any): um item de dado que deseja procurar na pilha
-        
-        Returns:
-            int: um número inteiro representando a posição, na pilha, em que foi
-                 encontrada a chave.
+        pos = 1
+        cursor = self.__topo
+        while (pos <= self.__tam):            
+            if (cursor.getCarga() == key):
+                return f'A posição do item {key} é {pos}'
+            pos += 1
+            cursor = cursor.getProximo()
 
-        Raises:
-            PilhaException: Exceção lançada quando o argumento "key"
-                  não está presente na pilha.
+        return PilhaException(f'O item {key} não existe na pilha')
 
-        Examples:
-            p = Pilha()
-            ...   # considere que temos internamente a lista [10,20,30,40]<-topo
-            print (p.elemento(40)) # exibe 4
-        """
-        pass
 
     def topo(self)->any:
-        """ Método que devolve o elemento localizado no topo, sem desempilhá-lo.
-    
-        Returns:
-            any: o conteúdo armazenado no elemento do topo
-
-        Raises:
-            PilhaException: Exceção lançada quando se tenta consultar o topo de uma
-                   uma pilha vazia
-                    
-        Examples:
-            p = Pilha()
-            ...   # considere que temos internamente a lista [10,20,30,40]
-            dado = p.topo()
-            print(dado) # exibe 40
-        """
         if self.__tam == 0:
-          raise PilhaException('Não há elementos para remoção. Pilha Vazia')
-          # raise PilhaException('Não há topo, a pilha está vazia')
-        return self.__topo
+            return PilhaException('Não há topo, a pilha está vazia')
+        return f'Esse é o topo da pilha: {self.__topo}'
+
 
     def empilha(self, carga:any):
-        """ Método que adiciona um novo elemento ao topo da pilha
-
-        Args:
-            carga (any): a carga que será armazenada no novo elemento do topo da pilha.
-
-        Examples:
-            p = Pilha()
-            ...   # considere que temos internamente a lista [10,20,30,40]
-            p.empilha(50)
-            print(p)  # exibe [10,20,30,40,50]
-        """
         no = No(carga)
         no.setProximo(self.__topo)
         self.__topo = no
@@ -133,46 +90,15 @@ class Pilha:
 
 
     def desempilha(self)->any:
-        """ Método que remove um elemento do topo da pilha e retorna
-            sua carga correspondente.
-    
-        Returns:
-           any: a carga armazenada no elemento removido
-
-        Raises:
-            PilhaException: Exceção lançada quando se tenta remover algo de uma pilha vazia
-                    
-        Examples:
-            p = Pilha()
-            ...   # considere que temos internamente a lista [10,20,30,40]
-            dado = p.desemplha()
-            print(p) # exibe [10,20,30]
-            print(dado) # exibe 40
-        """
         if self.__topo is None:
             raise PilhaException('Não há elementos para remoção. Pilha Vazia')
         carga = self.__topo.getCarga()
         self.__topo = self.__topo.getProximo()
         self.__tam -= 1
-        return carga
-   
-    def imprime(self):
-        """ Método que exibe na tela a sequência ordenada dos elementos da pilha
+        return f'O item {carga} foi removido!'
 
-        Examples:
-            p = Pilha()
-            ...   # considere que temos internamente a pilha [10,20,30,40]<-topo
-            p.imprimir()) # exibe Lista: [10,20,30,40] <- topo
-        """  
-        pass
         
     def __str__(self)->str:
-        """ Método que retorna a ordenação atual dos elementos da pilha, do
-            topo em direção à base
-
-        Returns:
-           str: a carga dos elementos da pilha, do topo até a base
-        """  
         s = 'topo->[ '
         cursor = self.__topo
         while(cursor != None):
@@ -184,6 +110,3 @@ class Pilha:
         # s += ' ]'
         # return s[:-2] + ' ]'
         return s + "]"
-
- 
-
