@@ -8,7 +8,7 @@ class Fila:
     def __init__(self, capacidade: int = 10):
         if capacidade <= 0:
             raise FilaException("A fila deve ser criada com um valor maior do que zero")
-        self.__capacidade = capacidade # Tamanho máximo da fila
+        self.__capacidade = capacidade # Tamanho máximo da ficha
         self.__inicio = 0 # Indice do primeiro elemento
         self.__fim = -1 # Indice do último elemento da fila
         self.__fila = [None] * capacidade
@@ -26,14 +26,13 @@ class Fila:
     def __len__(self):
         return self.__ocupados
 
-
     def getCapacidade(self)->int:
         return self.__capacidade
 
 
     def tamanho(self)->int:
-        return self.__capacidade
-        
+        pass
+
 
     def elemento(self, posicao:int)->any:
         if posicao <= 0 or posicao > self.__len__():
