@@ -6,11 +6,13 @@ for i in range (1,11):
     p.empilha(i*10)
 
 print(f'{p}\n')
-
-busca = p.busca(20)
-print(f'{busca}\n')
-
-elemento = p.elemento(5)
+try:
+    busca = p.busca(22)
+    print(f'{busca}\n')
+except PilhaException as pe:
+    print(pe, '\n')
+    
+elemento = p.elemento(12)
 print(f'{elemento}\n')
 
 topo = p.topo()

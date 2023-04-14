@@ -63,7 +63,7 @@ class Pilha:
                 
     def busca(self, key:any)->int:
         if self.__topo is None:
-            return PilhaException("Não há itens para buscar! Adicione itens")
+            raise PilhaException("Não há itens para buscar! Adicione itens")
 
         pos = 1
         cursor = self.__topo
@@ -73,7 +73,7 @@ class Pilha:
             pos += 1
             cursor = cursor.getProximo()
 
-        return PilhaException(f'O item {key} não existe na pilha')
+        raise PilhaException(f'O item {key} não existe na pilha')
 
 
     def topo(self)->any:
