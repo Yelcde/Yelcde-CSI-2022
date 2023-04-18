@@ -120,7 +120,7 @@ if options.solve == True:
                 print ('  [ time %3d ] Run job %3d for %.2f secs' % (thetime, jobnum, ranfor))
                 runlist.append([jobnum, runtime])
             else:
-                ranfor = runtime;
+                ranfor = runtime
                 print ('  [ time %3d ] Run job %3d for %.2f secs ( DONE at %.2f )' % (thetime, jobnum, ranfor, thetime + ranfor))
                 turnaround[jobnum] = thetime + ranfor
                 jobcount -= 1
