@@ -12,6 +12,7 @@ mutex = threading.Semaphore(1)
 
 # Codigo estah pulando numeros, e repetindo numeros entre threads
 
+print('Johnner Yelcde - 20222370015')
 def p1():
     global mutex
     global numero
