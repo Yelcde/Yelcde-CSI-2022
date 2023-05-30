@@ -33,3 +33,41 @@ CREATE TABLE Dependente (
     CONSTRAINT Dependente_pk PRIMARY KEY (socio, numero),
     FOREIGN KEY (socio) REFERENCES Socio(cpf) 
 );
+
+# 6. Adicionar, na tabela SÓCIO, o campo abaixo especificado.
+ALTER TABLE Socio 
+ADD datanasc DATETIME NULL;
+
+# 7. Adicionar, na tabela CIDADE, o campo abaixo especificado.
+ALTER TABLE Cidade
+ADD CONSTRAINT Cidade_check CHECK(CHAR_LENGTH(UF)=2);
+
+# 8. Adicionar um domínio (validação) para o campo NÚMERO da tabela DEPENDENTE, de modo que o valor seja maior que 0 (zero).
+ALTER TABLE Dependente
+ADD CONSTRAINT Dependente_validacao CHECK(numero > 0);
+
+# 9. Alterar, na tabela SÓCIO, o tipo do campo NOME para varchar(40).
+ALTER TABLE Socio 
+MODIFY nome VARCHAR(40) NOT NULL;
+
+# 10. Excluir, na tabela CIDADE, o domínio do campo UF.
+ALTER TABLE Cidade
+DROP COLUMN uf;
+
+# 11. Excluir, na tabela SÓCIO, o campo cidade.
+ALTER TABLE Socio
+ADD CONSTRAINT Socio_fk FOREIGN KEY (cidade) REFERENCES Cidade(codigo); #Corrigindo erro ao não colocar fk na criação da tabela
+
+ALTER TABLE Socio
+DROP CONSTRAINT Socio_fk;
+
+# 12. Excluir a tabela CIDADE.
+DROP TABLE Cidade; 
+
+ALTER TABLE Socio
+DROP CONSTRAINT Socio_ibfk_1;
+
+DROP TABLE Cidade; 
+
+# 13. Excluir o banco de dados BD.
+DROP DATABASE BD;
