@@ -101,10 +101,11 @@ class ArvoreBinaria:
         else:
             return self.__busca(chave,no.dir)
         
-    def count(self) -> int:
-        return self.__count_recursive(self.__cursor)
+    # Função que conta a altura da Árvore
+    def altura(self) -> int:
+        return self.__altura_recursive(self.__cursor)
 
-    def __count_recursive(self, node: No, cursor: No = None) -> int:
+    def __altura_recursive(self, node: No, cursor: No = None) -> int:
         if node is None:
             return 0
         
@@ -114,35 +115,65 @@ class ArvoreBinaria:
         if node.esq is not None:
             cursor = node
             self.descerEsquerda()
-            count_esq += 1 + self.__count_recursive(self.__cursor, cursor)
+            count_esq += 1 + self.__altura_recursive(self.__cursor, cursor)
             self.__cursor = cursor
         
         if node.dir is not None:
             cursor = node
             self.descerDireita()
-            count_dir += 1 + self.__count_recursive(self.__cursor, cursor)
+            count_dir += 1 + self.__altura_recursive(self.__cursor, cursor)
             self.__cursor = cursor
         
         return max(count_dir, count_esq)
-
+    
     # def count(self)->int:
-        # if self.__cursor.esq is None and self.__cursor.dir is None:
-            # return 0
-        # 
-        # cursorTemp = self.__cursor
-        # count_esq = 0
-        # count_dir = 0
+    # if self.__cursor.esq is None and self.__cursor.dir is None:
+        # return 0
+    # 
+    # cursorTemp = self.__cursor
+    # count_esq = 0
+    # count_dir = 0
+    # if self.__cursor.esq is not None:
+        # self.descerEsquerda()
+        # count_esq += 1 + self.count() 
+        # self.__cursor = cursorTemp
+    # elif self.__cursor.dir is not None:
+        # self.descerDireita()
+        # count_dir += 1 + self.count()
+        # self.__cursor = cursorTemp
+    # return max(count_dir, count_esq)
+    
+    # Método que conta a quantidade de nós na Árvore
+    def count(self):
+        return self.__count_recursive_esq() and self.__count_recursive_dir()
+    
+    # NÃO SEI COMO FAZER ISSO
+    def __count_recursive_esq(self):
+        if self.__cursor.esq is None and self.__cursor.dir is None:
+            return self.resetCursor()
+        cursorTemp = self.__cursor
+        if self.__cursor.esq is not None:
+            self.descerEsquerda()
+        else:
 
-        # if self.__cursor.esq is not None:
-            # self.descerEsquerda()
-            # count_esq += 1 + self.count() 
-            # self.__cursor = cursorTemp
-        # elif self.__cursor.dir is not None:
-            # self.descerDireita()
-            # count_dir += 1 + self.count()
-            # self.__cursor = cursorTemp
+    def __count_recursive_esq(self):
+        if self.__cursor.esq is None and self.__cursor.dir is None:
+            return self.resetCursor()
+        cursorTemp = self.__cursor
+        if self.__cursor.esq is not None:
+            self.descerEsquerda()
+        else:
 
-        # return max(count_dir, count_esq)
+        # no = 1
+        # esquerda = False
+        # while esquerda == False:
+            # if self.__cursor.esq is None and self.__cursor.dir is None:
+                # self.resetCursor()
+                # break
+            # cursorTemp = self.__cursor
+            # if self.__cursor.esq is not None:
+                # self.descerEsquerda()
+                # no += 1
         
     def go(self, chave:int ):
         pass

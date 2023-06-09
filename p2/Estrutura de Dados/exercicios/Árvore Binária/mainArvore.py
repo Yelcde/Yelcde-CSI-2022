@@ -21,12 +21,14 @@ arv.addEsq(5)
 arv.addDir(6)
 arv.descerDireita()
 arv.addDir(7)
+arv.descerDireita()
+arv.addDir(8)
 
 arv.resetCursor()
 
 arv.preordem()
 
-tamanhoArv = arv.count()
+tamanhoArv = arv.altura()
 print(f'\nO tamanho da arvore é: {tamanhoArv}')
 
 
