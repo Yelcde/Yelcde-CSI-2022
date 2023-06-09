@@ -66,7 +66,6 @@ class ArvoreBinaria:
         if self.__cursor is not None and self.__cursor.dir is not None:
             self.__cursor = self.__cursor.dir
 
-
     def resetCursor(self):
         self.__cursor = self.__raiz
 
@@ -101,6 +100,49 @@ class ArvoreBinaria:
             return True
         else:
             return self.__busca(chave,no.dir)
+        
+    def count(self) -> int:
+        return self.__count_recursive(self.__cursor)
+
+    def __count_recursive(self, node: No, cursor: No = None) -> int:
+        if node is None:
+            return 0
+        
+        count_esq = 0
+        count_dir = 0
+        
+        if node.esq is not None:
+            cursor = node
+            self.descerEsquerda()
+            count_esq += 1 + self.__count_recursive(self.__cursor, cursor)
+            self.__cursor = cursor
+        
+        if node.dir is not None:
+            cursor = node
+            self.descerDireita()
+            count_dir += 1 + self.__count_recursive(self.__cursor, cursor)
+            self.__cursor = cursor
+        
+        return max(count_dir, count_esq)
+
+    # def count(self)->int:
+        # if self.__cursor.esq is None and self.__cursor.dir is None:
+            # return 0
+        # 
+        # cursorTemp = self.__cursor
+        # count_esq = 0
+        # count_dir = 0
+
+        # if self.__cursor.esq is not None:
+            # self.descerEsquerda()
+            # count_esq += 1 + self.count() 
+            # self.__cursor = cursorTemp
+        # elif self.__cursor.dir is not None:
+            # self.descerDireita()
+            # count_dir += 1 + self.count()
+            # self.__cursor = cursorTemp
+
+        # return max(count_dir, count_esq)
         
     def go(self, chave:int ):
         pass
