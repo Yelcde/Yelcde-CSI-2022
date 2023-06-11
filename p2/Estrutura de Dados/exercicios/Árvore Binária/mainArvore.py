@@ -34,6 +34,9 @@ print(f'\nO tamanho da arvore é: {tamanhoArv}')
 quantno = arv.count()
 print(f'A quantidade de nós na arvore é: {quantno}')
 
+folhas = arv.leafs()
+print(f'A quantidade de folhas na arvore é: {folhas}')
+
 
 # arv.addEsq(10)
 # arv.addDir(20)

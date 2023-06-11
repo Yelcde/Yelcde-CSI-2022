@@ -140,6 +140,24 @@ class ArvoreBinaria:
         quantno += self.__count(no.dir)
 
         return quantno
+    
+    # Função para contar quantos nós folhas existem na Árvore
+    def leafs(self):
+        quantFolhas = self.__leafs(self.__raiz)
+        return quantFolhas
+    
+    def __leafs(self, no: 'No'):
+        if no is None:
+            return True
+        
+        no_esq = False
+        no_dir = False
+
+        no_esq += self.__leafs(no.esq)
+        no_dir += self.__leafs(no.dir)
+
+        if no_esq is True and no_dir is True:
+            return 1
         
     def go(self, chave:int ):
         pass
