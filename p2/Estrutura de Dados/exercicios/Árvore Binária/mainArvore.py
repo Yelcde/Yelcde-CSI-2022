@@ -31,6 +31,9 @@ arv.preordem()
 tamanhoArv = arv.altura()
 print(f'\nO tamanho da arvore é: {tamanhoArv}')
 
+quantno = arv.count()
+print(f'A quantidade de nós na arvore é: {quantno}')
+
 
 # arv.addEsq(10)
 # arv.addDir(20)

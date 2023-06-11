@@ -126,54 +126,20 @@ class ArvoreBinaria:
         
         return max(count_dir, count_esq)
     
-    # def count(self)->int:
-    # if self.__cursor.esq is None and self.__cursor.dir is None:
-        # return 0
-    # 
-    # cursorTemp = self.__cursor
-    # count_esq = 0
-    # count_dir = 0
-    # if self.__cursor.esq is not None:
-        # self.descerEsquerda()
-        # count_esq += 1 + self.count() 
-        # self.__cursor = cursorTemp
-    # elif self.__cursor.dir is not None:
-        # self.descerDireita()
-        # count_dir += 1 + self.count()
-        # self.__cursor = cursorTemp
-    # return max(count_dir, count_esq)
-    
     # Método que conta a quantidade de nós na Árvore
     def count(self):
-        return self.__count_recursive_esq() and self.__count_recursive_dir()
+        return self.__count(self.__raiz)
     
-    # NÃO SEI COMO FAZER ISSO
-    def __count_recursive_esq(self):
-        if self.__cursor.esq is None and self.__cursor.dir is None:
-            return self.resetCursor()
-        cursorTemp = self.__cursor
-        if self.__cursor.esq is not None:
-            self.descerEsquerda()
-        else:
+    def __count(self, no):
+        if no is None:
+            return 0 
+        
+        quantno = 1
 
-    def __count_recursive_esq(self):
-        if self.__cursor.esq is None and self.__cursor.dir is None:
-            return self.resetCursor()
-        cursorTemp = self.__cursor
-        if self.__cursor.esq is not None:
-            self.descerEsquerda()
-        else:
+        quantno += self.__count(no.esq)
+        quantno += self.__count(no.dir)
 
-        # no = 1
-        # esquerda = False
-        # while esquerda == False:
-            # if self.__cursor.esq is None and self.__cursor.dir is None:
-                # self.resetCursor()
-                # break
-            # cursorTemp = self.__cursor
-            # if self.__cursor.esq is not None:
-                # self.descerEsquerda()
-                # no += 1
+        return quantno
         
     def go(self, chave:int ):
         pass
