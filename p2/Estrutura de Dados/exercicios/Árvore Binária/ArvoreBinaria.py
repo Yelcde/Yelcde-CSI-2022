@@ -118,11 +118,6 @@ class ArvoreBinaria:
     def __count(self, no):
         if no is None:
             return 0 
-        
-        # quantno = 1
-
-        # quantno += self.__count(no.esq)
-        # quantno += self.__count(no.dir)
 
         return 1 + self.__count(no.esq) + self.__count(no.dir)
     
@@ -138,14 +133,26 @@ class ArvoreBinaria:
         
         return self.__leafs(no.esq) + self.__leafs(no.dir)
         
-        # no_esq = False
-        # no_dir = False
+    def getLevel(self, key):
+        return self.__getLevel(self.__raiz, key)
+    
+    def __getLevel(self, no, key):
+        level = 0
+        if no is None:
+            return 0
+        if no.carga == key:
+            return 1
+        
+        level = self.__getLevel(no.esq, key)
+        if level:
+            return 1 + self.__getLevel(no.esq, key) 
+        
+        level = self.__getLevel(no.dir, key)
+        if level:
+            return 1 + self.__getLevel(no.dir, key) 
+        
+        return 0
 
-        # no_esq += self.__leafs(no.esq)
-        # no_dir += self.__leafs(no.dir)
-
-        # if no_esq is True and no_dir is True:
-        #     return 1
         
     def go(self, chave:int ):
         pass

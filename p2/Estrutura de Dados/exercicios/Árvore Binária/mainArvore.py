@@ -37,21 +37,5 @@ print(f'A quantidade de nós na arvore é: {quantno}')
 folhas = arv.leafs()
 print(f'A quantidade de folhas na arvore é: {folhas}')
 
-
-# arv.addEsq(10)
-# arv.addDir(20)
-# arv.resetCursor()
-# arv.descerDireita()
-# print('Cursor: ', arv.getCursor())
-# arv.addDir(55)
-# arv.descerDireita()
-# print('Cursor: ', arv.getCursor())
-# arv.addEsq(8)
-# 
-# print('Busca:', arv.busca(578))
-# 
-# arv.preordem()
-# print()
-# arv.emordem()
-# print()
-# arv.posordem()
+getLevel = arv.getLevel(8)
+print(f'O nível referente a esse item na arvore é: {getLevel}')
