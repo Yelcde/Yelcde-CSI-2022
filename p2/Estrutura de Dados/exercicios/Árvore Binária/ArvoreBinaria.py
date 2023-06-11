@@ -105,27 +105,12 @@ class ArvoreBinaria:
     def altura(self) -> int:
         return self.__altura_recursive(self.__cursor)
 
-    def __altura_recursive(self, node: No, cursor: No = None) -> int:
-        if node is None:
+    def __altura_recursive(self, no: No, cursor: No = None) -> int:
+        if no is None:
             return 0
         
-        count_esq = 0
-        count_dir = 0
+        return 1 + max(self.__altura_recursive(no.esq), self.__altura_recursive(no.dir))
         
-        if node.esq is not None:
-            cursor = node
-            self.descerEsquerda()
-            count_esq += 1 + self.__altura_recursive(self.__cursor, cursor)
-            self.__cursor = cursor
-        
-        if node.dir is not None:
-            cursor = node
-            self.descerDireita()
-            count_dir += 1 + self.__altura_recursive(self.__cursor, cursor)
-            self.__cursor = cursor
-        
-        return max(count_dir, count_esq)
-    
     # Método que conta a quantidade de nós na Árvore
     def count(self):
         return self.__count(self.__raiz)
@@ -134,30 +119,33 @@ class ArvoreBinaria:
         if no is None:
             return 0 
         
-        quantno = 1
+        # quantno = 1
 
-        quantno += self.__count(no.esq)
-        quantno += self.__count(no.dir)
+        # quantno += self.__count(no.esq)
+        # quantno += self.__count(no.dir)
 
-        return quantno
+        return 1 + self.__count(no.esq) + self.__count(no.dir)
     
     # Função para contar quantos nós folhas existem na Árvore
     def leafs(self):
-        quantFolhas = self.__leafs(self.__raiz)
-        return quantFolhas
+        return self.__leafs(self.__raiz)
     
     def __leafs(self, no: 'No'):
         if no is None:
-            return True
-        
-        no_esq = False
-        no_dir = False
-
-        no_esq += self.__leafs(no.esq)
-        no_dir += self.__leafs(no.dir)
-
-        if no_esq is True and no_dir is True:
+            return 0
+        if no.esq is None and no.dir is None:
             return 1
+        
+        return self.__leafs(no.esq) + self.__leafs(no.dir)
+        
+        # no_esq = False
+        # no_dir = False
+
+        # no_esq += self.__leafs(no.esq)
+        # no_dir += self.__leafs(no.dir)
+
+        # if no_esq is True and no_dir is True:
+        #     return 1
         
     def go(self, chave:int ):
         pass
