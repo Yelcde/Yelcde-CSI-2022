@@ -132,7 +132,8 @@ class ArvoreBinaria:
             return 1
         
         return self.__leafs(no.esq) + self.__leafs(no.dir)
-        
+    
+    # Pegando o nível da chave ofertada pelo usuario 
     def getLevel(self, key):
         return self.__getLevel(self.__raiz, key)
     
