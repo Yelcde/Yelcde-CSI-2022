@@ -46,3 +46,9 @@ select nome, venda
 from produto
 where descricao like '%chocolate%' and venda >= 15
 order by venda desc;
+
+# 10. Obter o código e o nome dos funcionários homens, exceto aqueles cujos nomes iniciam pela letra "A", ordenados pelo nome em ordem ascendente.
+select idfuncionario, nome
+from funcionario
+where sexo = "M" and nome not like "a%"
+order by nome
