@@ -13,21 +13,23 @@ class TabelaHash:
             if (self.__table[slot] is None):
                 self.__table[slot] = value                
             else:  # tratar colisao aqui
-                nextSlot = self.__rh(slot)
+                i = 1
+                nextSlot = self.__quadratica(slot, i)
                 while(self.__table[nextSlot] is not None):
-                    nextSlot = self.__rh(nextSlot)
+                    i += 1
+                    nextSlot = self.__quadratica(slot, i)
                 self.__table[nextSlot] = value
             self.__ocupados += 1
 
     def get(self, key:any)->any:
         pass
 
-    # Sondagem Linear
     def __hash(self, key:any):
         return hash(key) % self.__capacidade
-
-    def __rh(self, slot):
-        return (slot + 1) % self.__capacidade
+    
+    # Sondagem Quadrática
+    def __quadratica(self, key, i):
+        return (key + i**2) % self.__capacidade  
 
     def __str__(self):
         s = ''
@@ -36,13 +38,13 @@ class TabelaHash:
         return s
 
 # teste
-ht = TabelaHash(7)
-ht.put(80,'P')
-ht.put(121,'Y')
-ht.put(84,'T')
-ht.put(72,'H')
-ht.put(79,'O')
-ht.put(78,'N')
+ht = TabelaHash(13)
+ht.put(12,12)
+ht.put(31,31)
+ht.put(90,90)
+ht.put(28,28)
+ht.put(77,77)
+ht.put(26,26)
 # ht.put(400,"GBR")
 # ht.put(600,"RTG")
 # ht.put(700,"ZZZ")
