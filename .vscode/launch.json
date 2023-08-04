@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "CodeLens (Launch) - Amigo",
+            "request": "launch",
+            "mainClass": "Amigo",
+            "projectName": "Yelcde-CSI-2022_d9e32dc2"
+        },
+        {
             "name": "Python: Arquivo Atual",
             "type": "python",
             "request": "launch",
