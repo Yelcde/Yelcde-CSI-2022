@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Imc",
+            "request": "launch",
+            "mainClass": "imc.Imc",
+            "projectName": "Yelcde-CSI-2022_e67e4d2"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Imc",
+            "request": "launch",
+            "mainClass": "Imc",
+            "projectName": "Yelcde-CSI-2022_e67e4d2"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Amigo2",
             "request": "launch",
             "mainClass": "Amigo2",
