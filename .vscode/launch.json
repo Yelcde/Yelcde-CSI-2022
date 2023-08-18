@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - primeiroArray",
+            "request": "launch",
+            "mainClass": "primeiroArray",
+            "projectName": "Yelcde-CSI-2022_d9e32dc2"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Imc",
             "request": "launch",
             "mainClass": "imc.Imc",
