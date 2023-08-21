@@ -9,5 +9,6 @@ public class Amigo {
         System.out.println(nome1+", de quem você é amigo? ");
         String nome2 = teclado.nextLine();
         System.out.println(nome1+" é amigo de "+nome2);
+        teclado.close();
     }
 }
