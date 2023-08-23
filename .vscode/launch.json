@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Teste1",
+            "request": "launch",
+            "mainClass": "retangulopoo.Teste1",
+            "projectName": "Yelcde-CSI-2022_e67e4d2"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - primeiroArray",
             "request": "launch",
             "mainClass": "primeiroArray",

@@ -1,3 +1,5 @@
+package imc;
+
 public class Imc {
     public static void main(String[] args){
         double peso = 150;

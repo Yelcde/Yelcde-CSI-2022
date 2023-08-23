@@ -1,3 +1,5 @@
+package imc;
+
 import javax.swing.JOptionPane;
 
 public class ImcJanelas {
