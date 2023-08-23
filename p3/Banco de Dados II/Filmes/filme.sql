@@ -64,6 +64,15 @@ insert into artista values(default,'Jimin',null,null,'05/03/70');
 insert into artista values(default, 'Caio Castro', null, 'BR', '15/07/75');
 insert into artista values(default, 'Larissa Manoella', null, 'BR', '15/07/75');
 
+-- Atualizações
+update artista
+set cidade = 'Rio de Janeiro'
+where codart in(11, 12);
+
+update artista
+set cidade = 'Coreia'
+where codart = 8;
+
 insert into filme values(default,'Encontro Explosivo',2010,134,4,1);
 insert into filme values(default,'O Besouro Verde',2010,155,1,1);
 insert into filme values(default,'Comer, Rezar, Amar',2010,177,2,1);
@@ -73,6 +82,7 @@ insert into filme values(default,'Nasce uma estrela',2018,100,6,1);
 insert into filme values(default,'Uncharted',2010,134,4,1);
 insert into filme values(default,'O Besouro Azul',2010,155,1,1);
 insert into filme values(default,'Comer, Dormir, Viver',2010,177,2,1);
+insert into filme values(default,'Elvis',2022,120,null,3);
 
 insert into categoria values(default,'Aventura');
 insert into categoria values(default,'Romance');
