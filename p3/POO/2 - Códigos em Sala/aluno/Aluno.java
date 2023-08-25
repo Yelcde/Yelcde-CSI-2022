@@ -25,7 +25,7 @@ public class Aluno {
         if (this.getMedia() >= 70)
             return "Aprovado";
         else if (this.getMedia() >= 40)
-            return "Reprovado";
-        else return "Final";
+            return "Final";
+        else return "Reprovado";
     }
 }
