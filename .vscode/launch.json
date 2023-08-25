@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Janela",
+            "request": "launch",
+            "mainClass": "Janela",
+            "projectName": "Yelcde-CSI-2022_d9e32dc2"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Index",
+            "request": "launch",
+            "mainClass": "Index",
+            "projectName": "Yelcde-CSI-2022_d9e32dc2"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Index",
+            "request": "launch",
+            "mainClass": "matricula.Index",
+            "projectName": "Yelcde-CSI-2022_d9e32dc2"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Teste1",
             "request": "launch",
             "mainClass": "retangulopoo.Teste1",
