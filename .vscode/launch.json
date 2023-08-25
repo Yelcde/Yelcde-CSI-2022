@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "aluno.Main",
+            "projectName": "Yelcde-CSI-2022_d9e32dc2"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Aluno",
+            "request": "launch",
+            "mainClass": "Aluno",
+            "projectName": "Yelcde-CSI-2022_d9e32dc2"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Janela",
             "request": "launch",
             "mainClass": "Janela",
