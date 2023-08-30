@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - ContaTeste",
+            "request": "launch",
+            "mainClass": "conta.ContaTeste",
+            "projectName": "Yelcde-CSI-2022_e67e4d2"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Main",
             "request": "launch",
             "mainClass": "aluno.Main",
