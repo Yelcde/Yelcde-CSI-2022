@@ -1,5 +1,3 @@
-package matricula;
-
 public class Index {
     public static void main(String[] args) {
         Matricula matricula = new Matricula("20222370015");

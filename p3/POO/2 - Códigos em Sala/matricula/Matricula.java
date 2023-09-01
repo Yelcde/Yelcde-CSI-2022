@@ -1,5 +1,3 @@
-package matricula;
-
 public class Matricula {
     private String matricula;
 
