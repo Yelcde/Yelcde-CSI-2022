@@ -63,6 +63,7 @@ insert into artista values(default,'V',null,'USA','20/08/67');
 insert into artista values(default,'Jimin',null,null,'05/03/70');
 insert into artista values(default, 'Caio Castro', null, 'BR', '15/07/75');
 insert into artista values(default, 'Larissa Manoella', null, 'BR', '15/07/75');
+insert into artista values(default, 'Maria Ximenes', null, 'BR', '27/11/78');
 
 -- Atualizações
 update artista
