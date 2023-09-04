@@ -73,17 +73,6 @@ update artista
 set cidade = 'Coreia'
 where codart = 8;
 
-insert into filme values(default,'Encontro Explosivo',2010,134,4,1);
-insert into filme values(default,'O Besouro Verde',2010,155,1,1);
-insert into filme values(default,'Comer, Rezar, Amar',2010,177,2,1);
-insert into filme values(default,'Coringa',2019,122,6,1);
-insert into filme values(default,'Era uma vez em Hollywood',2020,119,4,2);
-insert into filme values(default,'Nasce uma estrela',2018,100,6,1);
-insert into filme values(default,'Uncharted',2010,134,4,1);
-insert into filme values(default,'O Besouro Azul',2010,155,1,1);
-insert into filme values(default,'Comer, Dormir, Viver',2010,177,2,1);
-insert into filme values(default,'Elvis',2022,120,null,3);
-
 insert into categoria values(default,'Aventura');
 insert into categoria values(default,'Romance');
 insert into categoria values(default,'Comédia');
@@ -100,6 +89,21 @@ insert into estudio values(default,'Universal');
 insert into estudio values(default,'Marvel');
 insert into estudio values(default,'DC');
 insert into estudio values(default,'Pixar');
+
+insert into filme values(default,'Encontro Explosivo',2010,134,4,1);
+insert into filme values(default,'O Besouro Verde',2010,155,1,1);
+insert into filme values(default,'Comer, Rezar, Amar',2010,177,2,1);
+insert into filme values(default,'Coringa',2019,122,6,1);
+insert into filme values(default,'Era uma vez em Hollywood',2020,119,4,2);
+insert into filme values(default,'Nasce uma estrela',2018,100,6,1);
+insert into filme values(default,'Uncharted',2010,134,4,1);
+insert into filme values(default,'O Besouro Azul',2010,155,1,1);
+insert into filme values(default,'Comer, Dormir, Viver',2010,177,2,1);
+insert into filme values(default,'Elvis',2022,120,null,3);
+update filme
+set codfilme = 10
+where codfilme = 14;
+select * from personagem;
 
 insert into personagem values(1,1,'Natalie',10000);
 insert into personagem values(1,2,'Tom',10000);
