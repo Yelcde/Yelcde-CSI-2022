@@ -97,3 +97,30 @@ from engenheiro e
 join atuacao a on e.codeng = a.codeng
 join projeto p on a.codeng = p.codproj
 where p.area like 'Tecnologia';
+
+-- 12. Verifique o comando seguinte:
+select codeng
+from engenheiro
+where salario > 1200
+    INTERSECT
+select codeng
+from atuacao;
+
+-- O que ele faz?
+-- Ele pega os codigos dos engenheiros que tem um salario acima de 1200 e junta apenas os codigos que batem com os códigos que estão em atuação
+
+-- Refaça o comando usando uma subquery.
+select codeng 
+from engenheiro 
+where salario > 1200 and codeng in (select codeng
+                                    from atuacao);
+
+-- Depois, refaça-o usando JOIN.
+select e.codeng 
+from engenheiro e 
+join atuacao a on e.codeng = a.codeng
+where salario > 1200;
+
+-- 13. Insira um novo engenheiro.
+insert into engenheiro values(default, 'Monkey D. Luffy', 1000)
+

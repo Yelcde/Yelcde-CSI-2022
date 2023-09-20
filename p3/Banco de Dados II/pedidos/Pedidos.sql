@@ -96,3 +96,8 @@ insert into itenspedido values(5,4, 10);
 insert into itenspedido values(3,4, 35);
 insert into itenspedido values(1,5, 10);
 select * from itenspedido;
+
+-- Criando um usuário
+create role jycc login
+password 'bd2'
+superuser createdb createrole;
