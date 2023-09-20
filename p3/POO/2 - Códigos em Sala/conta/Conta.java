@@ -3,7 +3,7 @@ package conta;
 public class Conta {
     private String numero;
     private String cpf;
-    private Integer saldo;
+    private double saldo;
     
     public Conta(String numero, String cpf) {
         this.numero = numero;
@@ -12,15 +12,15 @@ public class Conta {
     }
 
     // Funções
-    public Integer getSaldo() {
+    public double getSaldo() {
         return saldo;
     }
 
-    public void creditar(Integer valor) {
-        saldo = saldo + valor;
+    public void creditar(double valor) {
+        saldo = (saldo + valor);
     }
 
-    public void debitar(Integer valor) {
-        saldo = saldo - valor;
+    public void debitar(double valor) {
+        saldo = (saldo - valor);
     }
 }
