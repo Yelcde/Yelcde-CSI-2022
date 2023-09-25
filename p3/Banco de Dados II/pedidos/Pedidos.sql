@@ -101,3 +101,20 @@ select * from itenspedido;
 create role jycc login
 password 'bd2'
 superuser createdb createrole;
+
+Begin;
+UPDATE vendedor
+SET salariofixo = 6000 WHERE codvend = 1;
+SAVEPOINT a_v1;
+UPDATE vendedor
+SET salariofixo = 5000 WHERE codvend = 2;
+SAVEPOINT a_v2;
+Select * from vendedor;
+SELECT sum(salariofixo) FROM vendedor;
+ROLLBACK TO SAVEPOINT a_v1;
+SELECT SUM(salariofixo) FROM vendedor;
+Select * from vendedor;
+UPDATE vendedor
+SET salariofixo = 5000 WHERE codvend = 2;
+Select * from vendedor;
+COMMIT;
