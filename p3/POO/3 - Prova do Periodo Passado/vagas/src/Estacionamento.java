@@ -55,7 +55,6 @@ public class Estacionamento {
         ArrayList<Integer> aux = new ArrayList<>();
         for (int i = 0; i < placas.length; i++) {
             if (placas[i].equals("livre")) {
-                System.out.println(placas[i]);
                 aux.add(i+1);
             }
         }
