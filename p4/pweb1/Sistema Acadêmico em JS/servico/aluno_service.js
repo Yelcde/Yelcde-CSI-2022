@@ -8,6 +8,11 @@ class AlunoService {
         if (alunoPesquisado.length > 0) {
             throw new Error('Aluno já cadastrado!');
         }
+
+        if (idade < 18) {
+            throw new Error('Aluno de menor')
+        }
+        
         const alunoNovo = new Aluno(nome, idade, matricula);
         this.repositorio.inserir(alunoNovo);
         return alunoNovo;
