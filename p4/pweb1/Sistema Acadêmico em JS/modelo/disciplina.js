@@ -14,8 +14,8 @@ class Disciplina {
         this._nome = novoNome;
     }
 
-    set alunos(novoAluno) {
-        this.alunos.push(novoAluno);
+    set inserirAluno(novoAluno) {
+        this._alunos.push(novoAluno);
     }
 
     get nome() {

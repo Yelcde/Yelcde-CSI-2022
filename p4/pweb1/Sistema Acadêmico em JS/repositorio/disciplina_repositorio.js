@@ -8,6 +8,10 @@ class DisciplinaRepositorio {
         this.disciplinas.push(disciplina)
     }
 
+    inserirAluno(indexDaDisciplina, aluno) {
+        this.disciplinas[indexDaDisciplina].inserirAluno(aluno)
+    }
+
     listar() {
         return this.disciplinas
     }

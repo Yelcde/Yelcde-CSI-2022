@@ -10,7 +10,7 @@ class DisciplinaControlador {
         const disciplinaInserida = this.servico.inserir(nomeElemento.value, Number(codigoElemento.value));
         const listaDisciplinaElemento = document.querySelector("#listaDisciplina");
         if (disciplinaInserida) {
-            this.inserirDisciplinaNoHtml(disciplinaInserida, listaDisciplinaElemento, codigoElemento);
+            this.inserirDisciplinaNoHtml(disciplinaInserida, listaDisciplinaElemento);
         }
     }
 
@@ -24,5 +24,14 @@ class DisciplinaControlador {
         const disciplinaElemento = document.createElement("li");
         disciplinaElemento.textContent = `Disciplina: ${disciplina.nome} - Código: ${disciplina.codigo} - Alunos: ${alunos}`;
         elementoDestino.appendChild(disciplinaElemento);
+    }
+
+    inserirAlunoEmDisciplina() {
+        const codigoElemento = document.querySelector("#codigo");
+        const matriculaAluno = document.querySelector("#matriculaAluno");
+        this.servico.inserirAluno(codigoElemento, matriculaAluno)
+        const listaDisciplinaElemento = document.querySelector("#listaDisciplina");
+        const disciplina = this.servico.pesquisarPorCodigo(codigo)
+        this.inserirDisciplinaNoHtml(disciplina, listaDisciplinaElemento);
     }
 }
