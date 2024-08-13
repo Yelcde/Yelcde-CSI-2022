@@ -1,0 +1,19 @@
+<header>
+  <h1 class="mat-headline-medium" routerLink="/houses">CRUD EXERCISE</h1>
+
+  <nav>
+    <ul>
+      <li>
+        <a [routerLink]="['/houses']">Listagem de casas</a>
+      </li>
+
+      <li>
+        <a [routerLink]="['houses', 'register']">Cadastrar casa</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <router-outlet />
+</main>

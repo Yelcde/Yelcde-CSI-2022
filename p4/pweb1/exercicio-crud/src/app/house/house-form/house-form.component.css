@@ -1,0 +1,16 @@
+#house-form-card {
+  width: calc(60% + 16px);
+  padding-right: 16px;
+}
+
+form {
+  padding-top: 20px;
+}
+
+form #form-field-grid .grid-col {
+  margin-left: 16px;
+}
+
+form #form-field-grid .form-field {
+  width: 100%;
+}

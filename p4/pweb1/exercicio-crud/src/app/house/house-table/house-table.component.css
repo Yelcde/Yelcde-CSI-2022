@@ -1,0 +1,14 @@
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: var(--mat-table-row-item-container-height, 52px);
+}
+
+.actions button:first-child {
+  color: #f83636;
+}
+
+.actions button:last-child {
+  color: #7a36f8;
+}

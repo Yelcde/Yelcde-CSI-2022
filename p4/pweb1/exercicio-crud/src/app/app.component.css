@@ -1,0 +1,19 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+header h1 {
+  cursor: pointer;
+}
+
+header nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+main {
+  padding: 0 3rem 3rem;
+}
