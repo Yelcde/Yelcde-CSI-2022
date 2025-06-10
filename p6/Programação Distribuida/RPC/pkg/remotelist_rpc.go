@@ -114,10 +114,12 @@ func (rls *RemoteListService) Append(args *ListValueArgs, reply *bool) error {
 		return fmt.Errorf("failed to log append operation: %w", err)
 	}
 
+	// Se a lista com o ID fornecido não existir, cria uma nova lista vazia.
 	if _, ok := rls.lists[args.ListID]; !ok {
 		rls.lists[args.ListID] = make([]int, 0)
 	}
 
+	// Adiciona o valor à lista correspondente ao ListID.
 	rls.lists[args.ListID] = append(rls.lists[args.ListID], args.Value)
 	fmt.Printf("Appended to %s: %v\n", args.ListID, rls.lists[args.ListID])
 	*reply = true
@@ -128,6 +130,7 @@ func (rls *RemoteListService) Remove(args *ListIDArgs, reply *int) error {
 	rls.mu.Lock()
 	defer rls.mu.Unlock()
 
+	// Procura a lista pelo ID fornecido.
 	list, ok := rls.lists[args.ListID]
 	if !ok {
 		return errors.New("list with id " + args.ListID + " not found")
@@ -138,6 +141,7 @@ func (rls *RemoteListService) Remove(args *ListIDArgs, reply *int) error {
 		return fmt.Errorf("failed to log remove operation: %w", err)
 	}
 
+	// Remove o último elemento da lista, se houver.
 	if len(list) > 0 {
 		*reply = list[len(list)-1]
 		rls.lists[args.ListID] = list[:len(list)-1]
@@ -148,7 +152,6 @@ func (rls *RemoteListService) Remove(args *ListIDArgs, reply *int) error {
 	return nil
 }
 
-// Get retorna o valor da posição i, na lista com identificador list_id. 
 func (rls *RemoteListService) Get(args *GetArgs, reply *int) error {
 	rls.mu.Lock()
 	defer rls.mu.Unlock()
