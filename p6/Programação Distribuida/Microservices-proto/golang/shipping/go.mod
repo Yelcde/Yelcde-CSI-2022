@@ -1,4 +1,4 @@
-module github.com/lucasandrade912/microservices-proto/golang/order
+module github.com/lucasandrade912/microservices-proto/golang/shipping
 
 go 1.24.5
 

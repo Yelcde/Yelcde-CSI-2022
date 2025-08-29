@@ -2,7 +2,7 @@
 GITHUB_USERNAME=lucasandrade912
 GITHUB_EMAIL=lucasantos.dev@gmail.com
 
-SERVICE_NAME=order
+SERVICE_NAME=shipping
 RELEASE_VERSION=v1.2.3
 
 sudo apt-get install -y protobuf-compiler golang-goprotobuf-dev
